@@ -1,0 +1,6 @@
+@DigitalPond.Example_HostAddress = http://localhost:5264
+
+GET {{DigitalPond.Example_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
