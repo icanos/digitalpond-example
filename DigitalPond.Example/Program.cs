@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Mvc;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -21,8 +23,9 @@ var summaries = new[]
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
 
-app.MapGet("/weatherforecast", () =>
+app.MapGet("/weatherforecast", ([FromServices]ILogger<Program> logger) =>
     {
+        logger.LogInformation("New request for weather! Yay");
         var forecast = Enumerable.Range(1, 5).Select(index =>
                 new WeatherForecast
                 (
